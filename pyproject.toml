@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "taskcli"
+version = "0.1.0"
+description = "A tiny task tracker CLI (Day 2: Python for Backend Engineers)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff", "mypy"]
+
+[project.scripts]
+taskcli = "taskcli.cli:main"
+
+[tool.setuptools]
+packages = ["taskcli"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes: unused imports, undefined names
+    "I",   # isort: import ordering
+    "N",   # pep8-naming
+    "UP",  # pyupgrade: modern syntax (list[int], X | None)
+    "B",   # flake8-bugbear: likely bugs
+    "SIM", # flake8-simplify
+    "ANN", # flake8-annotations: every function must have type hints
+    "RUF", # ruff-specific rules
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
